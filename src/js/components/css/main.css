@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+.navbar .logo-container {
+	display: flex;
+	align-items: center;
+}
+.hamburguer {
+	width: 70px;
+	background-color: rgb(164, 0, 69);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+}
+.name h1 {
+	margin-left: 1.3em;
+	font-size: .8rem;
+	font-weight: 400;
+	letter-spacing: .24rem;
+	color: rgb(189, 189, 189);
+}
+
+/* button */
+.btn {
+	padding: .8em;
+	background: transparent;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn--project {
+	z-index: 3;
+}
+
+.btn--project::before {
+	content: "";
+	position: absolute;
+	width: 108%;
+	z-index: -1;
+	height: 130%;
+	transition: cubic-bezier(0.63, -2, 0.3, 2) .3s;
+	background: rgba(34, 34, 34, 0.11);
+}
+.btn--about::after,
+.btn--project::after {
+	content: "";
+	position: absolute;
+	width: 101%;
+	height: 100%;
+	border: .7px solid rgba(255, 255, 255, 0.959);
+	transition: cubic-bezier(0.63, -2, 0.3, 2) .3s;
+}
+.btn:hover {
+	cursor: pointer;
+}
+.btn--project:hover::after {
+	width: 115%;
+	height: 153%;
+	border: .1px solid rgba(241, 240, 240, 0.836);
+}
+.btn--project:hover::before {
+	background: rgba(34, 34, 34, 0.226);
+}
+.btn--about {
+	margin-right: 1em;
+	font-size: .8rem;
+}
+
+/* Main section */
+.main {
+	height: 100vh;
+	display: grid;
+	grid-template: 1fr/1fr 1fr;
+}
+.bg-section {
+	overflow: hidden;
+	position: relative;
+	filter: brightness(.85);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.bg-section img {
+	position: absolute;
+	z-index: 1;
+}
+.desc-section {
+	width: 100%;
+	background-image: url(../../imgs/pat.png);
+	background-color: rgb(164, 0, 69);
+	background-blend-mode: multiply;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.desc-section .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.desc-section .container h1 {
+	font-size: 3rem;
+	padding: .7rem;
+}
+.desc-section .container span {
+	font-size: .8rem;
+}
+.btn--project {
+	margin-top: 3rem;
+	padding: 1.3rem 3.4em;
+}
+hr {
+	width: 60px;
+	margin: 0 0 .8rem;
+	border: none;
+	background: white;
+	height: 2.5px;
+}

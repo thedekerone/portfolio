@@ -8,7 +8,7 @@ module.exports = {
 	},
 	mode      : 'production',
 	output    : {
-		path     : path.resolve(__dirname),
+		path     : path.resolve(__dirname, 'dist'),
 		filename : 'js/[name].js'
 	},
 	devServer : {
@@ -26,7 +26,7 @@ module.exports = {
 				]
 			},
 			{
-				test : /\.(jpg|png|jpeg|gif)$/,
+				test : /\.(jpg|png|jpeg|gif|svg)$/,
 				use  : {
 					loader  : 'url-loader',
 					options : {
@@ -37,10 +37,8 @@ module.exports = {
 			{
 				test : /\.css$/,
 				use  : [
-					{
-						loader : 'css-loader'
-					},
-					{ loader: 'style-loader' }
+					{ loader: 'style-loader' },
+					{ loader: 'css-loader' }
 				]
 			},
 			{
