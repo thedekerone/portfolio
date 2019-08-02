@@ -1,18 +1,17 @@
 import React from 'react';
-import firstImg from '../imgs/unit-test-2.jpg';
 
-export default function Display() {
+export default function Display(props) {
 	return (
-		<section className='main'>
+		<section className='main' id={props.identifier}>
 			<div className='bg-section'>
-				<img src={firstImg} alt='fist' />
+				<img src={props.slide.imgPath} alt='fist' />
 			</div>
 			<div className='desc-section'>
 				<div className='container'>
 					<span>UI|Front-end</span>
-					<h1>Farmkart</h1>
+					<h1>{props.slide.title}</h1>
 					<hr />
-					<span>Farm website example</span>
+					<span>{props.slide.description}</span>
 					<div className='btn btn--project'>view project</div>
 				</div>
 			</div>

@@ -6,6 +6,7 @@
 body {
 	color: white;
 	font-family: 'Montserrat', sans-serif;
+	overflow: hidden
 }
 .navbar {
 	display: flex;
@@ -60,7 +61,8 @@ body {
 	background: rgba(34, 34, 34, 0.11);
 }
 .btn--about::after,
-.btn--project::after {
+.btn--project::after,
+.btn--activate::after {
 	content: "";
 	position: absolute;
 	width: 101%;
@@ -83,6 +85,11 @@ body {
 	margin-right: 1em;
 	font-size: .8rem;
 }
+.btn--activate{
+	position: absolute;
+	bottom: 20px;
+	left: 47.6%;
+}
 
 /* Main section */
 .main {
@@ -96,7 +103,7 @@ body {
 	filter: brightness(.6);
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 }
 .bg-section img {
 	position: absolute;

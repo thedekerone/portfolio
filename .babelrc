@@ -8,8 +8,9 @@
           "helpers": true,
           "regenerator": true,
           "useESModules": false
-        }
-      ]
+        },
+      ],
+      ["transform-class-properties"]
     ],
     "presets":[
         "@babel/preset-env",
