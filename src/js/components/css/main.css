@@ -93,7 +93,7 @@ body {
 .bg-section {
 	overflow: hidden;
 	position: relative;
-	filter: brightness(.85);
+	filter: brightness(.6);
 	display: flex;
 	justify-content: center;
 	align-items: center;
