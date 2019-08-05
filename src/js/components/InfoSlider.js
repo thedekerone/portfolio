@@ -1,14 +1,15 @@
 import React from 'react';
 
 export default function InfoSlider(props) {
-	console.log(window.scrollY);
-	var altura = `${-(props.show - 1) * 969}px`;
-	console.log(altura);
+	var altura = `${-(props.show - 1) * window.innerHeight}px`;
 	return (
 		<div className='infoSlider' style={{ top: altura }}>
 			{props.slide.map((e) => {
 				return (
-					<div className='desc-section' id={`info${e.identifier}`}>
+					<div
+						className='desc-section'
+						style={{ backgroundColor: props.mainColor }}
+						id={`info${e.identifier}`}>
 						<div className='container'>
 							<span>UI|Front-end</span>
 							<h1>{e.title}</h1>

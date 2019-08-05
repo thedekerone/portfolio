@@ -1,22 +1,27 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-
 module.exports = {
-	entry     : {
+	optimization : {
+		splitChunks : {
+			// include all types of chunks
+			chunks : 'all'
+		}
+	},
+	entry        : {
 		main : path.resolve(__dirname, 'src/index.js')
 	},
-	mode      : 'production',
-	output    : {
+	mode         : 'production',
+	output       : {
 		path     : path.resolve(__dirname, 'dist'),
 		filename : 'js/[name].js'
 	},
-	devServer : {
+	devServer    : {
 		contentBase : './dist',
 		hot         : true,
 		open        : true
 	},
-	module    : {
+	module       : {
 		rules : [
 			{
 				test    : /\.(js|jsx)$/,
@@ -30,7 +35,7 @@ module.exports = {
 				use  : {
 					loader  : 'url-loader',
 					options : {
-						limit : 900
+						limit : 10
 					}
 				}
 			},
@@ -55,7 +60,7 @@ module.exports = {
 			}
 		]
 	},
-	plugins   : [
+	plugins      : [
 		new HtmlWebpackPlugin({
 			template : path.resolve(__dirname, 'public/index.html')
 		}),
