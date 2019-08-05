@@ -5,7 +5,7 @@ import firstImg from './imgs/unit-test-2.jpg';
 import secImg from './imgs/unit-test-1.jpg';
 import thirdImg from './imgs/unit-test-3.jpg';
 import fourthImg from './imgs/unit-test-4.jpg';
-import _ from 'lodash';
+import { throttle } from 'lodash';
 
 export default class App extends Component {
 	state = {
@@ -166,7 +166,7 @@ export default class App extends Component {
 	componentDidMount() {
 		window.addEventListener(
 			'wheel',
-			_.throttle(
+			throttle(
 				(e) => {
 					// console.log(e);
 					if (e.deltaY < 0) {
