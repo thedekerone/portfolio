@@ -3,10 +3,12 @@
 	margin: 0;
 	padding: 0;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
 	color: white;
 	font-family: 'Montserrat', sans-serif;
-	overflow: hidden
 }
 .navbar {
 	display: flex;
@@ -85,32 +87,39 @@ body {
 	margin-right: 1em;
 	font-size: .8rem;
 }
-.btn--activate{
-	position: absolute;
+.btn--activate {
+	position: fixed;
 	bottom: 20px;
 	left: 47.6%;
 }
 
 /* Main section */
 .main {
-	height: 100vh;
 	display: grid;
 	grid-template: 1fr/1fr 1fr;
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+
+	transition-duration: 1s;
+	height: 100%;
 }
 .bg-section {
+	height: 100%;
 	overflow: hidden;
-	position: relative;
 	filter: brightness(.6);
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	transition: 1s;
+	position: fixed;
+	z-index: -1;
 }
 .bg-section img {
-	position: absolute;
+	position: relative;
 	z-index: 1;
 }
 .desc-section {
+	height: 100%;
 	width: 100%;
+	position: relative;
 	background-image: url(../../imgs/pat.png);
 	background-color: rgb(164, 0, 69);
 	background-blend-mode: multiply;
@@ -140,4 +149,22 @@ hr {
 	border: none;
 	background: white;
 	height: 2.5px;
+}
+
+/* slides control */
+/* #slide1 {
+} */
+#slide2 {
+	filter: brightness(1.5);
+}
+.img-slider {
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.infoSlider {
+	position: relative;
+	transition: 1s;
 }
