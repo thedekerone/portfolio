@@ -40,7 +40,7 @@ export default class App extends Component {
 			}
 		],
 		show      : 1,
-		mainColor : 'rgb(161, 164, 0)'
+		mainColor : 'rgb(119, 19, 17)'
 		// rgb(49, 0, 164)
 		// rgb(0, 164, 101)
 		// rgb(161, 164, 0)
@@ -51,7 +51,7 @@ export default class App extends Component {
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : 'rgb(164, 74, 0)',
+					mainColor : 'rgb(35, 48, 65)',
 					show      : 2,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -64,7 +64,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor : 'rgb(0, 164, 101)',
+					mainColor : 'rgb(0,107,71)',
 					show      : 3,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -77,7 +77,7 @@ export default class App extends Component {
 			}
 			case 3: {
 				this.setState({
-					mainColor : 'rgb(164, 0, 69)',
+					mainColor : '#542266',
 					// rgb(161, 164, 0
 					show      : 4,
 					slides    : [
@@ -91,7 +91,7 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor : 'rgb(161, 164, 0)',
+					mainColor : 'rgb(119, 19, 17)',
 					show      : 1,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -109,7 +109,7 @@ export default class App extends Component {
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : 'rgb(164, 0, 69)',
+					mainColor : '#542266',
 
 					show      : 4,
 					slides    : [
@@ -123,7 +123,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor : 'rgb(0, 164, 101)',
+					mainColor : 'rgb(119, 19, 17)',
 					show      : 1,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -136,7 +136,7 @@ export default class App extends Component {
 			}
 			case 3: {
 				this.setState({
-					mainColor : 'rgb(164, 74, 0)',
+					mainColor : 'rgb(35, 48, 65)',
 					show      : 2,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -149,7 +149,7 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor : 'rgb(161, 164, 0)',
+					mainColor : 'rgb(0,107,71)',
 
 					show      : 3,
 					slides    : [
@@ -164,11 +164,12 @@ export default class App extends Component {
 		}
 	};
 	componentDidMount() {
-		window.addEventListener(
-			'wheel',
+		document.addEventListener(
+			'mousewheel',
 			throttle(
 				(e) => {
-					// console.log(e);
+					console.log(window);
+
 					if (e.deltaY < 0) {
 						this.handleClickSubir();
 					}
@@ -180,6 +181,33 @@ export default class App extends Component {
 				{ trailing: false }
 			)
 		);
+		var ts;
+		window.addEventListener('touchstart', (e) => {
+			ts = e.touches[0].clientY;
+		});
+		window.addEventListener('touchend', (e) => {
+			var te = e.changedTouches[0].clientY;
+			console.log(te, ts);
+			if (te > ts) {
+				this.handleClickSubir();
+			}
+			if (te < ts) {
+				this.handleClickBajar();
+			}
+		});
+
+		// window.addEventListener(
+		// 	'touchmove',
+		// 	throttle(
+		// 		(e) => {
+		// 			console.log(e);
+
+		// 			this.handleClickBajar();
+		// 		},
+		// 		700,
+		// 		{ trailing: false }
+		// 	)
+		// );
 	}
 	render() {
 		return (
@@ -188,15 +216,29 @@ export default class App extends Component {
 
 				<Display slide={this.state.slides} show={this.state.show} mainColor={this.state.mainColor} />
 
-				<span onClick={this.handleClickBajar} className='btn btn--activate' id='action-button'>
+				{/* <span onClick={this.handleClickBajar} className='btn btn--activate' id='action-button'>
 					DO bajar
 				</span>
 				<span onClick={this.handleClickSubir} className='btn btn--activate btn__subir' id='action-button'>
 					DO subir
-				</span>
+				</span> */}
 				<div className='dot-colection'>
 					{this.state.slides.map((e, index) => {
-						return <div className='dot' id={index === this.state.show - 1 ? 'selected' : null} />;
+						return (
+							<div className='dot-container'>
+								<div className='dot' id={index === this.state.show - 1 ? 'selected' : null} />{' '}
+								<p
+									style={
+										index === this.state.show - 1 ? (
+											{ opacity: 1, marginLeft: '0px' }
+										) : (
+											{ opacity: 0, marginLeft: '30px' }
+										)
+									}>
+									{e.title}
+								</p>
+							</div>
+						);
 					})}
 				</div>
 			</div>
