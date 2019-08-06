@@ -11,7 +11,7 @@ module.exports = {
 	},
 	mode    : 'production',
 	output  : {
-		path     : path.resolve(__dirname, 'build'),
+		path     : path.resolve(__dirname, 'dist'),
 		filename : 'js/[name].js',
 		library  : '[name]'
 	},
@@ -19,7 +19,7 @@ module.exports = {
 	plugins : [
 		new webpack.DllPlugin({
 			name : '[name]',
-			path : path.join(__dirname, 'build/js/[name]_manifest.json')
+			path : path.join(__dirname, 'dist/js/[name]_manifest.json')
 		})
 	]
 };
