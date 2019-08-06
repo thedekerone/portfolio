@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "webpack --config ./webpack.config.js",
 		"build:live": "webpack-dev-server --config ./webpack.config.js",
-		"build:dll": "webpack --config ./webpack.dll.config.js"
+		"build:dll": "webpack --config ./webpack.dll.config.js",
+		"deploy": "gh-pages -d build"
 	},
 	"keywords": [],
 	"author": "",
@@ -20,6 +21,7 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"css-loader": "^3.1.0",
 		"file-loader": "^4.1.0",
+		"gh-pages": "^2.1.0",
 		"html-webpack-plugin": "^3.2.0",
 		"mini-css-extract-plugin": "^0.8.0",
 		"style-loader": "^0.23.1",

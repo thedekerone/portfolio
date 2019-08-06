@@ -207,7 +207,7 @@ hr {
 		font-size: 8px;
 	}
 	.bg-section img {
-		height: 100%;
+		height: 100vh;
 	}
 	.desc-section {
 		height: 50vh;

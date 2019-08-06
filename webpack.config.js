@@ -13,11 +13,12 @@ module.exports = {
 	},
 	mode         : 'production',
 	output       : {
-		path     : path.resolve(__dirname, 'dist'),
-		filename : 'js/[name].js'
+		path       : path.resolve(__dirname, 'build/'),
+		filename   : 'js/[name].js',
+		publicPath : ''
 	},
 	devServer    : {
-		contentBase : './dist',
+		contentBase : './build',
 		hot         : true,
 		open        : true
 	},
@@ -65,7 +66,7 @@ module.exports = {
 			template : path.resolve(__dirname, 'public/index.html')
 		}),
 		new webpack.DllReferencePlugin({
-			manifest : require('./dist/js/modules_manifest.json')
+			manifest : require('./build/js/modules_manifest.json')
 		})
 	]
 };
