@@ -86,7 +86,7 @@ export default class App extends Component {
 			}
 			case 3: {
 				this.setState({
-					mainColor : '#b71142',
+					mainColor : '#b03049',
 					// rgb(161, 164, 0
 					show      : 4,
 					slides    : [
@@ -117,7 +117,7 @@ export default class App extends Component {
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : '#b71142',
+					mainColor : '#b03049',
 
 					show      : 4,
 					slides    : [
