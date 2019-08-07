@@ -1,50 +1,59 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Display from './components/Display';
-import firstImg from './imgs/unit-test-2.jpg';
-import secImg from './imgs/unit-test-1.jpg';
-import thirdImg from './imgs/unit-test-3.jpg';
-import fourthImg from './imgs/unit-test-4.jpg';
+import firstImg from './imgs/unit-test-2-2.jpg';
+import secImg from './imgs/unit-test-1-2.jpg';
+import thirdImg from './imgs/unit-test-3-2.jpg';
+import fourthImg from './imgs/unit-test-4-2.jpg';
+import WaitingPage from './components/WaitingPage';
+import icon from './imgs/scroll-down.svg';
 import { throttle } from 'lodash';
+import Modal from './components/Modal';
 
 export default class App extends Component {
-	state = {
-		slides    : [
-			{
-				title       : 'Farmkart',
-				description : 'Farm website example',
-				identifier  : 'slide1',
-				imgPath     : firstImg,
-				active      : true
-			},
-			{
-				title       : 'The Bakery',
-				description : 'Bakery website example',
-				identifier  : 'slide2',
-				imgPath     : secImg,
-				active      : true
-			},
-			{
-				title       : 'Yu-Gi-Oh Cards',
-				description : 'Yugioh cards searcher',
-				identifier  : 'slide3',
-				imgPath     : thirdImg,
-				active      : true
-			},
-			{
-				title       : 'Chankillo Farmers',
-				description : 'Farm website example',
-				identifier  : 'slide3',
-				imgPath     : fourthImg,
-				active      : true
-			}
-		],
-		show      : 1,
-		mainColor : 'rgb(119, 19, 17)'
-		// rgb(49, 0, 164)
-		// rgb(0, 164, 101)
-		// rgb(161, 164, 0)
-	};
+	constructor() {
+		super();
+
+		this.state = {
+			slides    : [
+				{
+					title       : 'Farmkart',
+					description : 'Farm website example',
+					identifier  : 'slide1',
+					imgPath     : firstImg,
+					active      : true,
+					path        : 'http://mauriciofow.me/sassie'
+				},
+				{
+					title       : 'The Bakery',
+					description : 'Bakery website example',
+					identifier  : 'slide2',
+					imgPath     : secImg,
+					active      : true,
+					path        : 'http://mauriciofow.me/the-bakery'
+				},
+				{
+					title       : 'YGO Cards',
+					description : 'Yugioh cards searcher',
+					identifier  : 'slide3',
+					imgPath     : thirdImg,
+					active      : true,
+					path        : 'http://mauriciofow.me/yugioh-deckbuilder'
+				},
+				{
+					title       : 'Chankillo Farmers',
+					description : 'Farm website example',
+					identifier  : 'slide3',
+					imgPath     : fourthImg,
+					active      : true,
+					path        : 'http://mauriciofow.me/ChankilloFarmers'
+				}
+			],
+			start     : false,
+			show      : 1,
+			mainColor : 'rgb(142, 42, 42)'
+		};
+	}
 
 	handleClickBajar = () => {
 		// console.log('start');
@@ -77,7 +86,7 @@ export default class App extends Component {
 			}
 			case 3: {
 				this.setState({
-					mainColor : '#542266',
+					mainColor : '#b71142',
 					// rgb(161, 164, 0
 					show      : 4,
 					slides    : [
@@ -91,7 +100,7 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor : 'rgb(119, 19, 17)',
+					mainColor : 'rgb(142, 42, 42)',
 					show      : 1,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -105,11 +114,10 @@ export default class App extends Component {
 		}
 	};
 	handleClickSubir = () => {
-		// console.log(this.state.show);
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : '#542266',
+					mainColor : '#b71142',
 
 					show      : 4,
 					slides    : [
@@ -123,7 +131,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor : 'rgb(119, 19, 17)',
+					mainColor : 'rgb(147, 62, 62)',
 					show      : 1,
 					slides    : [
 						{ ...this.state.slides[0], active: true },
@@ -163,13 +171,16 @@ export default class App extends Component {
 			}
 		}
 	};
+	componentWillMount() {}
+
 	componentDidMount() {
+		setTimeout(() => {
+			!this.state.start ? this.setState({ start: true }) : null;
+		}, 2000);
 		document.addEventListener(
 			'mousewheel',
 			throttle(
 				(e) => {
-					console.log(window);
-
 					if (e.deltaY < 0) {
 						this.handleClickSubir();
 					}
@@ -187,7 +198,6 @@ export default class App extends Component {
 		});
 		window.addEventListener('touchend', (e) => {
 			var te = e.changedTouches[0].clientY;
-			console.log(te, ts + 30);
 			if (te > ts + 15) {
 				this.handleClickSubir();
 			}
@@ -195,33 +205,17 @@ export default class App extends Component {
 				this.handleClickBajar();
 			}
 		});
-
-		// window.addEventListener(
-		// 	'touchmove',
-		// 	throttle(
-		// 		(e) => {
-		// 			console.log(e);
-
-		// 			this.handleClickBajar();
-		// 		},
-		// 		700,
-		// 		{ trailing: false }
-		// 	)
-		// );
 	}
 	render() {
 		return (
 			<div>
 				<Navbar mainColor={this.state.mainColor} />
 
-				<Display slide={this.state.slides} show={this.state.show} mainColor={this.state.mainColor} />
-
-				{/* <span onClick={this.handleClickBajar} className='btn btn--activate' id='action-button'>
-					DO bajar
+				<span className='btn btn--activate' onClick={this.handleClickBajar}>
+					<img src={icon} width='40px' alt='' />
 				</span>
-				<span onClick={this.handleClickSubir} className='btn btn--activate btn__subir' id='action-button'>
-					DO subir
-				</span> */}
+
+				<Display slide={this.state.slides} show={this.state.show} mainColor={this.state.mainColor} />
 				<div className='dot-colection'>
 					{this.state.slides.map((e, index) => {
 						return (
@@ -241,6 +235,9 @@ export default class App extends Component {
 						);
 					})}
 				</div>
+				<Modal style={{ display: 'none' }}>
+					<WaitingPage start={this.state.start} />
+				</Modal>
 			</div>
 		);
 	}

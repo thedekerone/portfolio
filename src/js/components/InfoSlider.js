@@ -5,8 +5,6 @@ export default function InfoSlider(props) {
 
 	// props.show-1 === index ? { opacity: 1 } : { opacity: 0 };
 
-	console.log(document.body.offsetHeight);
-	console.log('test4');
 	return (
 		<div className='infoSlider' style={{ top: altura }}>
 			{props.slide.map((e, index) => {
@@ -45,7 +43,9 @@ export default function InfoSlider(props) {
 								}>
 								{e.description}
 							</span>
-							<div
+							<a
+								href={e.path}
+								target='_blank'
 								style={
 									props.show - 1 === index ? (
 										{ opacity: 1, bottom: 0 }
@@ -55,7 +55,7 @@ export default function InfoSlider(props) {
 								}
 								className='btn btn--project'>
 								view project
-							</div>
+							</a>
 						</div>
 					</div>
 				);
