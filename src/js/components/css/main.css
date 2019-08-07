@@ -96,6 +96,10 @@ body {
 .btn__subir {
 	left: 60%;
 }
+.btn--project {
+	margin-top: 3rem;
+	padding: 1.3rem 3.4em;
+}
 
 /* Main section */
 .main {
@@ -120,6 +124,8 @@ body {
 	position: relative;
 	z-index: 1;
 }
+
+/* Description */
 .desc-section {
 	height: 100vh;
 	width: 100%;
@@ -140,16 +146,45 @@ body {
 }
 .desc-section .container h1 {
 	font-size: 3rem;
+	position: relative;
+	letter-spacing: .17rem;
 	text-align: center;
 	padding: .7rem;
 }
 .desc-section .container span {
 	font-size: .8rem;
 }
-.btn--project {
-	margin-top: 3rem;
-	padding: 1.3rem 3.4em;
+
+/* desc animation control */
+.container h1 {
+	transition: 1.1s;
+	transition-delay: .3s;
+	position: relative;
 }
+.container hr {
+	transition: cubic-bezier(0.63, -2, 0.3, 2) .5s;
+	transition-delay: 1s;
+
+	position: relative;
+}
+.container .description {
+	transition: .9s;
+	transition-delay: .9s;
+	position: relative;
+}
+.container .skills {
+	transition: .5s;
+	position: relative;
+
+	transition-delay: 1.4s;
+}
+.container .btn {
+	transition: cubic-bezier(0.63, -2, 0.3, 2) .8s;
+	position: relative;
+
+	transition-delay: 1.4s;
+}
+/*  */
 hr {
 	width: 60px;
 	margin: 0 0 .8rem;
@@ -202,9 +237,15 @@ hr {
 #selected {
 	transform: scale(2.3);
 }
+
+@media screen and (max-width: 1000px) {
+	html {
+		font-size: 11px;
+	}
+}
 @media screen and (max-width: 700px) {
 	html {
-		font-size: 8px;
+		font-size: 9px;
 	}
 	.bg-section img {
 		height: 100vh;
@@ -219,4 +260,9 @@ hr {
 	.main {
 		grid-template: 1fr/1fr;
 	}
+}
+body {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
 }

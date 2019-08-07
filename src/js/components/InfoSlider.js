@@ -1,21 +1,61 @@
 import React from 'react';
 
 export default function InfoSlider(props) {
-	var altura = `${-(props.show - 1) * window.innerHeight}px`;
+	var altura = `${-(props.show - 1) * document.body.offsetHeight}px`;
+
+	// props.show-1 === index ? { opacity: 1 } : { opacity: 0 };
+
+	console.log(document.body.offsetHeight);
+	console.log('test4');
 	return (
 		<div className='infoSlider' style={{ top: altura }}>
-			{props.slide.map((e) => {
+			{props.slide.map((e, index) => {
 				return (
 					<div
 						className='desc-section'
 						style={{ backgroundColor: props.mainColor }}
 						id={`info${e.identifier}`}>
 						<div className='container'>
-							<span>UI|Front-end</span>
-							<h1>{e.title}</h1>
-							<hr />
-							<span>{e.description}</span>
-							<div className='btn btn--project'>view project</div>
+							<span
+								className='skills'
+								style={
+									props.show - 1 === index ? (
+										{ opacity: 1, bottom: 0 }
+									) : (
+										{ opacity: 0, bottom: '-10px' }
+									)
+								}>
+								UI|Front-end
+							</span>
+							<h1
+								style={
+									props.show - 1 === index ? (
+										{ opacity: 1, letterSpacing: '.17rem' }
+									) : (
+										{ opacity: 0, letterSpacing: '-1.2rem	' }
+									)
+								}>
+								{e.title}
+							</h1>
+							<hr style={props.show - 1 === index ? { opacity: 1 } : { opacity: 0, width: 0 }} />
+							<span
+								className='description'
+								style={
+									props.show - 1 === index ? { opacity: 1, left: 0 } : { opacity: 0, left: '-20px' }
+								}>
+								{e.description}
+							</span>
+							<div
+								style={
+									props.show - 1 === index ? (
+										{ opacity: 1, bottom: 0 }
+									) : (
+										{ opacity: 0, bottom: '-30px' }
+									)
+								}
+								className='btn btn--project'>
+								view project
+							</div>
 						</div>
 					</div>
 				);

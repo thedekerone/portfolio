@@ -187,11 +187,11 @@ export default class App extends Component {
 		});
 		window.addEventListener('touchend', (e) => {
 			var te = e.changedTouches[0].clientY;
-			console.log(te, ts);
-			if (te > ts) {
+			console.log(te, ts + 30);
+			if (te > ts + 15) {
 				this.handleClickSubir();
 			}
-			if (te < ts) {
+			if (te < ts - 15) {
 				this.handleClickBajar();
 			}
 		});
