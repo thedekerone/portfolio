@@ -6,7 +6,7 @@ export default function InfoSlider(props) {
 	// props.show-1 === index ? { opacity: 1 } : { opacity: 0 };
 
 	return (
-		<div className='infoSlider' style={{ top: altura }}>
+		<div className='infoSlider' style={{ transform: `translateY(${altura})` }}>
 			{props.slide.map((e, index) => {
 				return (
 					<div

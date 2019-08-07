@@ -228,7 +228,8 @@ hr {
 }
 .infoSlider {
 	position: relative;
-	transition: .6s;
+	transition: transform 350ms linear;
+	will-change: transform;
 }
 
 /* DOTS */
