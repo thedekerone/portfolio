@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
-import App from './js/App.js';
 import React from 'react';
+import loadable from '@loadable/component';
+
+const App = loadable(() => import('./js/App'));
 
 ReactDOM.render(<App />, document.getElementById('root'));
 if (module.hot) {

@@ -140,7 +140,8 @@ body {
 	height: 100%;
 	overflow: hidden;
 	filter: brightness(.85);
-	transition: .6s;
+	transition: height .7s linear;
+	will-change: height;
 	/* bottom: 0; */
 	position: fixed;
 	z-index: -1;
@@ -183,7 +184,7 @@ body {
 /* desc animation control */
 .container h1 {
 	transition: 1.1s;
-	transition-delay: .1s;
+	transition-delay: .3s;
 	position: relative;
 }
 .container hr {
@@ -228,7 +229,7 @@ hr {
 }
 .infoSlider {
 	position: relative;
-	transition: transform 350ms linear;
+	transition: transform .7 linear;
 	will-change: transform;
 }
 
@@ -300,7 +301,7 @@ body {
 	background-image: url(../../imgs/pat-dark.jpg);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: auto auto;
 	background-position: center;
 	top: 0;
 }
