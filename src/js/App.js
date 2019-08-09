@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Display from './components/Display';
-import firstImg from './imgs/unit-test-2-2.jpg';
-import secImg from './imgs/unit-test-1-2.jpg';
+import firstImg from './imgs/unit-test-1-2.jpg';
+import secImg from './imgs/unit-test-2-2.jpg';
 import thirdImg from './imgs/unit-test-3-2.jpg';
 import fourthImg from './imgs/unit-test-4-2.jpg';
 import WaitingPage from './components/WaitingPage';
@@ -15,7 +15,7 @@ export default class App extends Component {
 		super();
 
 		this.state = {
-			slides    : [
+			slides     : [
 				{
 					title       : 'Farmkart',
 					description : 'Farm website example',
@@ -46,16 +46,17 @@ export default class App extends Component {
 				{
 					title       : 'Chankillo Farmers',
 					description : 'Farm website example',
-					identifier  : 'slide3',
+					identifier  : 'slide4',
 					imgPath     : fourthImg,
 					active      : true,
 					path        : 'http://mauriciofow.me/ChankilloFarmers',
 					index       : -1
 				}
 			],
-			start     : false,
-			show      : 1,
-			mainColor : 'rgb(142, 42, 42)'
+			start      : false,
+			show       : 1,
+			mainColor  : 'rgb(142, 42, 42)',
+			movimiento : ''
 		};
 	}
 
@@ -63,15 +64,16 @@ export default class App extends Component {
 	// active=false ---------> image height:0
 	// active=true ---------> image height:100vh
 	// index controls zIndex which is used to make a slider effect
-
+	// there's always 2 trues which are the actual img showing and the next to be shown
 	handleClickBajar = () => {
 		// console.log('start');
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : 'rgb(35, 48, 65)',
-					show      : 2,
-					slides    : [
+					mainColor  : 'rgb(35, 48, 65)',
+					movimiento : 'bajando',
+					show       : 2,
+					slides     : [
 						{ ...this.state.slides[0], active: false, index: -1 },
 						{ ...this.state.slides[1], active: true, index: -1 },
 						{ ...this.state.slides[2], active: true, index: 1 },
@@ -82,23 +84,25 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor : 'rgb(0,107,71)',
-					show      : 3,
-					slides    : [
+					mainColor  : '#b03049',
+					movimiento : 'bajando',
+					show       : 3,
+					slides     : [
 						{ ...this.state.slides[0], active: true, index: -1 },
 						{ ...this.state.slides[1], active: true, index: 1 },
 						{ ...this.state.slides[2], active: false, index: 1 },
-						{ ...this.state.slides[3], active: false, index: -1 }
+						{ ...this.state.slides[3], active: false, index: 1 }
 					]
 				});
 				break;
 			}
 			case 3: {
 				this.setState({
-					mainColor : '#b03049',
+					mainColor  : 'rgb(0,107,71)',
 					// rgb(161, 164, 0
-					show      : 4,
-					slides    : [
+					movimiento : 'bajando',
+					show       : 4,
+					slides     : [
 						{ ...this.state.slides[0], active: true, index: 1 },
 						{ ...this.state.slides[1], active: false, index: 1 },
 						{ ...this.state.slides[2], active: false, index: -1 },
@@ -109,9 +113,10 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor : 'rgb(142, 42, 42)',
-					show      : 1,
-					slides    : [
+					mainColor  : 'rgb(142, 42, 42)',
+					movimiento : 'bajando',
+					show       : 1,
+					slides     : [
 						{ ...this.state.slides[0], active: false, index: 1 },
 						{ ...this.state.slides[1], active: false, index: -1 },
 						{ ...this.state.slides[2], active: true, index: -1 },
@@ -129,10 +134,11 @@ export default class App extends Component {
 		switch (this.state.show) {
 			case 1: {
 				this.setState({
-					mainColor : '#b03049',
+					mainColor  : 'rgb(0,107,71)',
 
-					show      : 4,
-					slides    : [
+					movimiento : 'subiendo',
+					show       : 4,
+					slides     : [
 						{ ...this.state.slides[0], active: true, index: 1 },
 						{ ...this.state.slides[1], active: false, index: 1 },
 						{ ...this.state.slides[2], active: false, index: -1 },
@@ -143,9 +149,10 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor : 'rgb(147, 62, 62)',
-					show      : 1,
-					slides    : [
+					mainColor  : 'rgb(147, 62, 62)',
+					movimiento : 'subiendo',
+					show       : 1,
+					slides     : [
 						{ ...this.state.slides[0], active: false, index: -1 },
 						{ ...this.state.slides[1], active: false, index: -1 },
 						{ ...this.state.slides[2], active: true, index: -1 },
@@ -156,9 +163,10 @@ export default class App extends Component {
 			}
 			case 3: {
 				this.setState({
-					mainColor : 'rgb(35, 48, 65)',
-					show      : 2,
-					slides    : [
+					mainColor  : 'rgb(35, 48, 65)',
+					movimiento : 'subiendo',
+					show       : 2,
+					slides     : [
 						{ ...this.state.slides[0], active: false, index: -1 },
 						{ ...this.state.slides[1], active: true, index: -1 },
 						{ ...this.state.slides[2], active: true, index: 1 },
@@ -169,10 +177,11 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor : 'rgb(0,107,71)',
+					mainColor  : '#b03049',
 
-					show      : 3,
-					slides    : [
+					movimiento : 'subiendo',
+					show       : 3,
+					slides     : [
 						{ ...this.state.slides[0], active: true, index: 1 },
 						{ ...this.state.slides[1], active: true, index: 1 },
 						{ ...this.state.slides[2], active: false, index: 1 },
@@ -201,7 +210,7 @@ export default class App extends Component {
 						this.handleClickBajar();
 					}
 				},
-				700,
+				500,
 				{ trailing: false }
 			)
 		);
@@ -228,7 +237,12 @@ export default class App extends Component {
 					<img src={icon} width='40px' alt='' />
 				</span>
 
-				<Display slide={this.state.slides} show={this.state.show} mainColor={this.state.mainColor} />
+				<Display
+					slide={this.state.slides}
+					show={this.state.show}
+					movimiento={this.state.movimiento}
+					mainColor={this.state.mainColor}
+				/>
 				<div className='dot-colection'>
 					{this.state.slides.map((e, index) => {
 						return (

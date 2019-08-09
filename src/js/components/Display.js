@@ -6,7 +6,12 @@ export default function Display(props) {
 	return (
 		<section className='main'>
 			<ImgSlider slide={props.slide} show={props.show} />
-			<InfoSlider slide={props.slide} show={props.show} mainColor={props.mainColor} />
+			<InfoSlider
+				slide={props.slide}
+				show={props.show}
+				movimiento={props.movimiento}
+				mainColor={props.mainColor}
+			/>
 		</section>
 	);
 }
