@@ -21,16 +21,18 @@ export default class App extends Component {
 					description : 'Farm website example',
 					identifier  : 'slide1',
 					imgPath     : firstImg,
-					active      : true,
-					path        : 'http://mauriciofow.me/sassie'
+					active      : false,
+					path        : 'http://mauriciofow.me/sassie',
+					index       : 1
 				},
 				{
 					title       : 'The Bakery',
 					description : 'Bakery website example',
 					identifier  : 'slide2',
 					imgPath     : secImg,
-					active      : true,
-					path        : 'http://mauriciofow.me/the-bakery'
+					active      : false,
+					path        : 'http://mauriciofow.me/the-bakery',
+					index       : 1
 				},
 				{
 					title       : 'YGO Cards',
@@ -38,7 +40,8 @@ export default class App extends Component {
 					identifier  : 'slide3',
 					imgPath     : thirdImg,
 					active      : true,
-					path        : 'http://mauriciofow.me/yugioh-deckbuilder'
+					path        : 'http://mauriciofow.me/yugioh-deckbuilder',
+					index       : -1
 				},
 				{
 					title       : 'Chankillo Farmers',
@@ -46,7 +49,8 @@ export default class App extends Component {
 					identifier  : 'slide3',
 					imgPath     : fourthImg,
 					active      : true,
-					path        : 'http://mauriciofow.me/ChankilloFarmers'
+					path        : 'http://mauriciofow.me/ChankilloFarmers',
+					index       : -1
 				}
 			],
 			start     : false,
@@ -54,6 +58,11 @@ export default class App extends Component {
 			mainColor : 'rgb(142, 42, 42)'
 		};
 	}
+
+	// control principal
+	// active=false ---------> image height:0
+	// active=true ---------> image height:100vh
+	// index controls zIndex which is used to make a slider effect
 
 	handleClickBajar = () => {
 		// console.log('start');
@@ -63,10 +72,10 @@ export default class App extends Component {
 					mainColor : 'rgb(35, 48, 65)',
 					show      : 2,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: true },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: false, index: -1 },
+						{ ...this.state.slides[1], active: true, index: -1 },
+						{ ...this.state.slides[2], active: true, index: 1 },
+						{ ...this.state.slides[3], active: false, index: 1 }
 					]
 				});
 				break;
@@ -76,10 +85,10 @@ export default class App extends Component {
 					mainColor : 'rgb(0,107,71)',
 					show      : 3,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: false },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: true, index: -1 },
+						{ ...this.state.slides[1], active: true, index: 1 },
+						{ ...this.state.slides[2], active: false, index: 1 },
+						{ ...this.state.slides[3], active: false, index: -1 }
 					]
 				});
 				break;
@@ -90,10 +99,10 @@ export default class App extends Component {
 					// rgb(161, 164, 0
 					show      : 4,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: false },
-						{ ...this.state.slides[2], active: false },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: true, index: 1 },
+						{ ...this.state.slides[1], active: false, index: 1 },
+						{ ...this.state.slides[2], active: false, index: -1 },
+						{ ...this.state.slides[3], active: true, index: -1 }
 					]
 				});
 				break;
@@ -103,16 +112,19 @@ export default class App extends Component {
 					mainColor : 'rgb(142, 42, 42)',
 					show      : 1,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: true },
-						{ ...this.state.slides[3], active: true }
+						{ ...this.state.slides[0], active: false, index: 1 },
+						{ ...this.state.slides[1], active: false, index: -1 },
+						{ ...this.state.slides[2], active: true, index: -1 },
+						{ ...this.state.slides[3], active: true, index: -1 }
 					]
 				});
 				break;
 			}
 		}
 	};
+
+	// control subir
+
 	handleClickSubir = () => {
 		switch (this.state.show) {
 			case 1: {
@@ -121,10 +133,10 @@ export default class App extends Component {
 
 					show      : 4,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: false },
-						{ ...this.state.slides[2], active: false },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: true, index: 1 },
+						{ ...this.state.slides[1], active: false, index: 1 },
+						{ ...this.state.slides[2], active: false, index: -1 },
+						{ ...this.state.slides[3], active: true, index: -1 }
 					]
 				});
 				break;
@@ -134,10 +146,10 @@ export default class App extends Component {
 					mainColor : 'rgb(147, 62, 62)',
 					show      : 1,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: true },
-						{ ...this.state.slides[3], active: true }
+						{ ...this.state.slides[0], active: false, index: -1 },
+						{ ...this.state.slides[1], active: false, index: -1 },
+						{ ...this.state.slides[2], active: true, index: -1 },
+						{ ...this.state.slides[3], active: true, index: 1 }
 					]
 				});
 				break;
@@ -147,10 +159,10 @@ export default class App extends Component {
 					mainColor : 'rgb(35, 48, 65)',
 					show      : 2,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: true },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: false, index: -1 },
+						{ ...this.state.slides[1], active: true, index: -1 },
+						{ ...this.state.slides[2], active: true, index: 1 },
+						{ ...this.state.slides[3], active: false, index: 1 }
 					]
 				});
 				break;
@@ -161,17 +173,16 @@ export default class App extends Component {
 
 					show      : 3,
 					slides    : [
-						{ ...this.state.slides[0], active: true },
-						{ ...this.state.slides[1], active: true },
-						{ ...this.state.slides[2], active: false },
-						{ ...this.state.slides[3], active: false }
+						{ ...this.state.slides[0], active: true, index: 1 },
+						{ ...this.state.slides[1], active: true, index: 1 },
+						{ ...this.state.slides[2], active: false, index: 1 },
+						{ ...this.state.slides[3], active: false, index: -1 }
 					]
 				});
 				break;
 			}
 		}
 	};
-	componentWillMount() {}
 
 	componentDidMount() {
 		setTimeout(() => {
@@ -183,8 +194,10 @@ export default class App extends Component {
 				(e) => {
 					if (e.deltaY < 0) {
 						this.handleClickSubir();
+						// console.log('sube');
 					}
 					if (e.deltaY > 0) {
+						// console.log('baja');
 						this.handleClickBajar();
 					}
 				},

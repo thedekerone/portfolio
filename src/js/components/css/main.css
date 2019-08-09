@@ -140,7 +140,7 @@ body {
 	height: 100%;
 	overflow: hidden;
 	filter: brightness(.85);
-	transition: .5s;
+	transition: height .5s, z-index 0s;
 	transition-timing-function: linear;
 
 	/* bottom: 0; */
@@ -231,6 +231,7 @@ hr {
 .infoSlider {
 	position: relative;
 	transition: .5s;
+	z-index: 2;
 	transition-timing-function: linear;
 }
 
@@ -372,6 +373,12 @@ body {
 	}
 	.btn--activate {
 		display: none;
+	}
+	.waiting-page::after {
+		background-attachment: scroll;
+	}
+	.waiting-page::before {
+		background-attachment: scroll;
 	}
 	.bg-section img {
 		height: 100vh;
