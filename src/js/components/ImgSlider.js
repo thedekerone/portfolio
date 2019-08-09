@@ -2,7 +2,7 @@ import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
 export default function ImgSlider(props) {
-	console.log('start');
+	console.log('start2');
 	return (
 		<div className='img-slider'>
 			{props.slide.map((e) => {
