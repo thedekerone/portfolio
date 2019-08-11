@@ -23,7 +23,7 @@ export default class App extends Component {
 					imgPath     : firstImg,
 					active      : false,
 					path        : 'http://mauriciofow.me/sassie',
-					index       : 1
+					index       : -1
 				},
 				{
 					title       : 'The Bakery',
@@ -32,7 +32,7 @@ export default class App extends Component {
 					imgPath     : secImg,
 					active      : false,
 					path        : 'http://mauriciofow.me/the-bakery',
-					index       : 1
+					index       : -1
 				},
 				{
 					title       : 'YGO Cards',
@@ -56,7 +56,7 @@ export default class App extends Component {
 			start      : false,
 			show       : 1,
 			mainColor  : 'rgb(142, 42, 42)',
-			movimiento : ''
+			movimiento : 'subiendo'
 		};
 	}
 
@@ -193,7 +193,7 @@ export default class App extends Component {
 		}
 	};
 
-	componentDidMount() {
+	componentWillMount() {
 		setTimeout(() => {
 			!this.state.start ? this.setState({ start: true }) : null;
 		}, 2000);

@@ -141,9 +141,11 @@ body {
 	height: 100%;
 	overflow: hidden;
 	filter: brightness(.85);
-	transition: height 500ms, z-index 0s;
+	transition: z-index 0s;
+	/* transition: height 500ms, z-index 0s;
+	
 	transition-timing-function: linear;
-	will-change: height;
+	will-change: height; */
 	transform-origin: top center;
 	/* bottom: 0; */
 	position: fixed;
@@ -162,8 +164,6 @@ body {
 	width: 100%;
 	position: absolute;
 	background-image: url(../../imgs/pat.png);
-	transition: all 500ms linear;
-	will-change: bottom, background-color;
 	background-color: rgb(0, 164, 101);
 	background-blend-mode: multiply;
 	display: flex;
@@ -236,7 +236,6 @@ hr {
 .infoSlider {
 	position: relative;
 	z-index: 2;
-	transition-timing-function: linear;
 }
 
 /* DOTS */

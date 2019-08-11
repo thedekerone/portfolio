@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSpring, animated, config } from 'react-spring';
 
 export default function InfoSlider(props) {
 	var altura = `${-(props.show - 1) * document.body.offsetHeight}px`;
@@ -7,30 +8,43 @@ export default function InfoSlider(props) {
 	// props.show-1 === index ? { opacity: 1 } : { opacity: 0 };
 	// slides array is reversed because the images are shown from last to first (this is made to give it the animation it has )
 	return (
-		<div className='infoSlider' style={{ backgroundColor: props.mainColor, transition: '1s' }}>
+		<div className='infoSlider' style={{ backgroundColor: props.mainColor }}>
 			{reversed.map((e, index) => {
+				const { y } = useSpring({
+					y         : props.show - 1 === index ? 0 : e.active ? 100 : -100,
+					config    : { duration: 400 },
+					immediate : e.active ? false : true
+				});
+				const { y2 } = useSpring({
+					y2        : props.show - 1 === index ? 0 : e.active ? 100 : -100,
+					config    : { duration: 400 },
+
+					immediate : props.show - 1 === index ? false : e.active ? true : false
+				});
+				const { bg } = useSpring({
+					bg     : props.mainColor,
+					config : { duration: 300 }
+				});
+
 				return (
 					<div className='desc-contaier'>
-						<div
+						<animated.div
 							className='desc-section'
 							style={
 								props.movimiento == 'subiendo' ? (
 									{
-										backgroundColor    : props.mainColor,
+										backgroundColor : bg.interpolate((bg) => `${bg}`),
 
-										bottom             :
-											props.show - 1 === index ? '0' : e.active ? '-100vh' : '100vh',
-
-										transitionDuration : e.active ? null : '0s'
+										bottom          : 0,
+										transform       : y.interpolate((y) => `translateY(${y}vh)`)
 									}
 								) : (
 									{
-										backgroundColor    : props.mainColor,
+										backgroundColor : bg.interpolate((bg) => `${bg}`),
 
-										bottom             :
-											props.show - 1 === index ? '0' : e.active ? '-100vh' : '100vh',
+										bottom          : 0,
 
-										transitionDuration : props.show - 1 === index ? null : e.active ? '0s' : 'null'
+										transform       : y2.interpolate((y2) => `translateY(${y2}vh)`)
 									}
 								)
 							}
@@ -91,7 +105,7 @@ export default function InfoSlider(props) {
 									view project
 								</a>
 							</div>
-						</div>
+						</animated.div>
 					</div>
 				);
 			})}
