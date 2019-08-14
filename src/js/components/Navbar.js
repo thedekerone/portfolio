@@ -30,7 +30,7 @@ const Navbar = (props) => {
 						<h1>Projects</h1>;
 						return (
 							<a
-								href='#'
+								href={e.path}
 								className='menu-item'
 								style={{
 									transitionDelay    : width ? '.7s ,0s' : '0s, 0s',

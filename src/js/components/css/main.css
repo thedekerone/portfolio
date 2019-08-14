@@ -45,7 +45,7 @@ body {
 	font-size: .8rem;
 	font-weight: 400;
 	letter-spacing: .24rem;
-	color: rgb(189, 189, 189);
+	color: white;
 }
 
 /* button */
@@ -141,7 +141,7 @@ body {
 .bg-section {
 	height: 100%;
 	overflow: hidden;
-	filter: brightness(.85);
+	filter: brightness(.75);
 	transition: z-index 0s;
 	/* transition: height 500ms, z-index 0s;
 	
@@ -203,7 +203,7 @@ body {
 	position: relative;
 }
 .container .skills {
-	transition: .6s;
+	transition: cubic-bezier(0.63, -2, 0.3, 2) .4s;
 	position: relative;
 
 	transition-delay: 1.2s;
@@ -241,6 +241,7 @@ hr {
 .dot-colection {
 	position: absolute;
 	left: 10px;
+	z-index: 2;
 	top: 45%;
 }
 .dot-container {
