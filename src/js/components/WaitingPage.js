@@ -8,7 +8,7 @@ export default function WaitingPage(props) {
 	const changeDisplay = () => {
 		setTimeout(() => {
 			setDisplay('none');
-		}, 3100);
+		}, 3600);
 	};
 	changeDisplay();
 	return (

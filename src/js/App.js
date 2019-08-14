@@ -196,7 +196,7 @@ export default class App extends Component {
 	componentWillMount() {
 		setTimeout(() => {
 			!this.state.start ? this.setState({ start: true }) : null;
-		}, 2000);
+		}, 2500);
 		document.addEventListener(
 			'mousewheel',
 			throttle(
@@ -210,7 +210,7 @@ export default class App extends Component {
 						this.handleClickBajar();
 					}
 				},
-				500,
+				530,
 				{ trailing: false }
 			)
 		);
@@ -231,11 +231,11 @@ export default class App extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar mainColor={this.state.mainColor} />
+				<Navbar mainColor={this.state.mainColor} slide={this.state.slides} />
 
-				<span className='btn btn--activate' onClick={this.handleClickBajar}>
+				{/* <span className='btn btn--activate' onClick={this.handleClickBajar}>
 					<img src={icon} width='40px' alt='' />
-				</span>
+				</span> */}
 
 				<Display
 					slide={this.state.slides}

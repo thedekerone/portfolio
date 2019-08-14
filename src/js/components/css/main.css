@@ -3,6 +3,7 @@
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
+	box-sizing: border-box;
 }
 .btn--project {
 	color: white;
@@ -156,15 +157,12 @@ body {
 }
 
 /* Description */
-.desc-container {
-	position: relative;
-}
+
 .desc-section {
 	height: 100vh;
 	width: 100%;
 	position: absolute;
 	background-image: url(../../imgs/pat.png);
-	background-color: rgb(0, 164, 101);
 	background-blend-mode: multiply;
 	display: flex;
 	justify-content: center;
@@ -397,5 +395,8 @@ body {
 	}
 	.main {
 		grid-template: 1fr/1fr;
+	}
+	.dot-colection {
+		display: none;
 	}
 }

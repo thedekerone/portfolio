@@ -7,7 +7,7 @@ export default function ImgSlider(props) {
 			{props.slide.map((e) => {
 				const { h } = useSpring({
 					h      : e.active ? 100 : 0,
-					config : { duration: 400 }
+					config : { duration: 500 }
 				});
 				return (
 					<animated.div
