@@ -44,18 +44,19 @@ export default class App extends Component {
 					index       : -1
 				},
 				{
-					title       : 'Chankillo Farmers',
-					description : 'Farm website example',
+					title       : 'Bucciarati Store',
+					description :
+						' Progressive web app of an Ecommerce built from scratch using: Nextjs, Graphql and Mongodb',
 					identifier  : 'slide4',
 					imgPath     : fourthImg,
 					active      : true,
-					path        : 'http://mauriciofow.me/ChankilloFarmers',
+					path        : 'https://bucciarati.mauriciofow.now.sh/',
 					index       : -1
 				}
 			],
 			start      : false,
 			show       : 1,
-			mainColor  : 'rgb(142, 42, 42)',
+			mainColor  : '#DB4C6B',
 			movimiento : 'subiendo'
 		};
 	}
@@ -84,7 +85,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor  : '#b03049',
+					mainColor  : '#DB4C6B',
 					movimiento : 'bajando',
 					show       : 3,
 					slides     : [
@@ -113,7 +114,7 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor  : 'rgb(142, 42, 42)',
+					mainColor  : '#DB4C6B',
 					movimiento : 'bajando',
 					show       : 1,
 					slides     : [
@@ -149,7 +150,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor  : 'rgb(147, 62, 62)',
+					mainColor  : '#DB4C6B',
 					movimiento : 'subiendo',
 					show       : 1,
 					slides     : [
@@ -177,7 +178,7 @@ export default class App extends Component {
 			}
 			case 4: {
 				this.setState({
-					mainColor  : '#b03049',
+					mainColor  : '#DB4C6B',
 
 					movimiento : 'subiendo',
 					show       : 3,
