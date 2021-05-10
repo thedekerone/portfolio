@@ -36,7 +36,7 @@
 		"@babel/runtime": "^7.5.5",
 		"@loadable/component": "^5.10.2",
 		"D": "^1.0.0",
-		"lodash": "^4.17.15",
+		"lodash": "^4.17.21",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"react-spring": "^8.0.27",
