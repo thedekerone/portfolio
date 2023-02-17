@@ -18,7 +18,6 @@ module.exports = {
 		publicPath : ''
 	},
 	devServer    : {
-		contentBase : './dist',
 		hot         : true,
 		open        : true
 	},
@@ -36,7 +35,7 @@ module.exports = {
 				use  : {
 					loader  : 'url-loader',
 					options : {
-						limit : 10
+						limit : 20
 					}
 				}
 			},
@@ -55,11 +54,18 @@ module.exports = {
 					options : {
 						presets : [
 							'@babel/preset-env'
-						]
+						],
+				
 					}
 				}
 			}
+			
 		]
+	},
+	performance: {
+		hints: false,
+		maxEntrypointSize: 512000,
+		maxAssetSize: 512000
 	},
 	plugins      : [
 		new HtmlWebpackPlugin({
