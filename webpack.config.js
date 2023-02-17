@@ -65,8 +65,8 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template : path.resolve(__dirname, 'public/index.html')
 		}),
-		new webpack.DllReferencePlugin({
-			manifest : require('./dist/js/modules_manifest.json')
-		})
+//		new webpack.DllReferencePlugin({
+//			manifest : require('./dist/js/modules_manifest.json')
+//		})
 	]
 };

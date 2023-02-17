@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Display from './components/Display';
-import firstImg from './imgs/unit-test-1-2.jpg';
-import secImg from './imgs/unit-test-2-2.jpg';
-import thirdImg from './imgs/unit-test-3-2.jpg';
+import firstImg from './imgs/coolbet.jpg';
+import secImg from './imgs/aunacovid.jpg';
+import thirdImg from './imgs/mango.jpg';
 import fourthImg from './imgs/unit-test-4-2.jpg';
 import WaitingPage from './components/WaitingPage';
 import icon from './imgs/scroll-down.svg';
@@ -17,30 +17,30 @@ export default class App extends Component {
 		this.state = {
 			slides     : [
 				{
-					title       : 'Farmkart',
-					description : 'Farm website example',
+					title       : 'Coolbet',
+					description : 'Gaming and Sportbooks company',
 					identifier  : 'slide1',
 					imgPath     : firstImg,
 					active      : false,
-					path        : 'http://mauriciofow.me/sassie',
+					path        : 'https://www.coolbet.com/',
 					index       : -1
 				},
 				{
-					title       : 'The Bakery',
-					description : 'Bakery website example',
+					title       : 'AUNA COVID',
+					description : 'Web App for booking medical appointments and COVID tests',
 					identifier  : 'slide2',
 					imgPath     : secImg,
 					active      : false,
-					path        : 'http://mauriciofow.me/the-bakery',
+					path        : 'https://aunacovid.com/',
 					index       : -1
 				},
 				{
-					title       : 'YGO Cards',
-					description : 'Yugioh cards searcher',
+					title       : 'Agricola Oskar',
+					description : 'Mango farm company website',
 					identifier  : 'slide3',
 					imgPath     : thirdImg,
 					active      : true,
-					path        : 'http://mauriciofow.me/yugioh-deckbuilder',
+					path        : 'https://agricola-oskar.mauriciofow.vercel.app/',
 					index       : -1
 				},
 				{
@@ -85,7 +85,7 @@ export default class App extends Component {
 			}
 			case 2: {
 				this.setState({
-					mainColor  : '#DB4C6B',
+					mainColor  : '#009ab2',
 					movimiento : 'bajando',
 					show       : 3,
 					slides     : [
@@ -245,10 +245,10 @@ export default class App extends Component {
 					mainColor={this.state.mainColor}
 				/>
 				<div className='dot-colection'>
-					{this.state.slides.map((e, index) => {
+					{[...this.state.slides].reverse().map((e, index) => {
 						return (
 							<div className='dot-container'>
-								<div className='dot' id={index === this.state.show - 1 ? 'selected' : null} />{' '}
+								<div className='dot' id={index === this.state.show - 1 ? 'selected' : null} />
 								<p
 									style={
 										index === this.state.show - 1 ? (

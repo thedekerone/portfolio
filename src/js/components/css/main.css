@@ -154,6 +154,8 @@ body {
 }
 .bg-section img {
 	z-index: 1;
+	height: 100vh;
+	object-fit: contain;
 }
 
 /* Description */
